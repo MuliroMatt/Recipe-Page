@@ -1,0 +1,171 @@
+@use './variables' as var;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Young+Serif&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Outfit", sans-serif;
+}
+
+h1, h2{
+    font-family: "Young Serif", serif;
+    font-weight: 400;
+}
+
+h1{
+    font-size: 40px;
+    color: var.$Dark-Charcoal;
+}
+
+p, li, th{
+    color: var.$Wenge-Brown;
+}
+
+h2{
+    color: var.$Nutmeg;
+}
+
+h3{
+    color: var.$Dark-Raspberry;
+}
+
+hr{
+    border: none;
+    height: 1px;
+    background-color: var.$Light-Grey;
+    margin-top: 24px;
+}
+
+ul, ol{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+ul li, ol li{
+    // display: flex;
+    // align-items: center;
+    padding-left: 50px;
+    position: relative;
+}
+
+ul li:before{
+    content: "\2022";
+    color: var.$Nutmeg;
+    font-size: 20px;
+    position: absolute;
+    left: 12px;
+
+}
+
+ol li:before{
+    content: counter(list-item, decimal) ".";
+    color: var.$Nutmeg;
+    font-weight: bold;
+    position: absolute;
+    left: 12px;
+}
+
+.subtitle{
+    margin: 16px 0;
+}
+
+
+body{
+    background-color: var.$Eggshell;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    .recipe-container{
+        background-color: var.$White;
+        width: 735px;
+        border-radius: 20px;
+        margin: 60px 0;
+        padding: 36px;
+        .recipe-image{
+            overflow: hidden;
+            width: 100%;
+            border-radius: 10px;
+            img{
+                width: 100%;
+            }
+        }
+        .recipe-title{
+            margin: 20px 0;
+        }
+        .recipe-description{
+            margin: 0 0 28px 0;
+        }
+        .preparation-time{
+            background-color: var.$Rose-White;
+            padding: 24px;
+            border-radius: 10px;
+            .preparation-time__title{
+                margin-bottom: 12px;
+            }
+        }
+        .nutrition{
+            .nutrition-table-description{
+                margin: 0 0 20px 0;
+            }
+        }
+        .nutrition-table{
+            width: 100%;
+            padding: 0 24px;
+            border-collapse: collapse;
+            tr{
+                border-bottom: 1px solid var.$Light-Grey;
+                td{
+                    padding: 12px 24px;
+                }
+                td:nth-child(2){
+                    padding: 12px 36px;
+                }
+            }
+            tr:nth-child(4){
+                border-bottom: none;
+            }
+            .nutrient{
+                color: var.$Wenge-Brown;
+            }
+            .nutrient-info{
+                font-weight: bold;
+                color: var.$Nutmeg;
+            }
+        }
+    }
+}
+
+
+.attribution{
+    margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 425px){
+    h1{
+        font-size: 32px;
+    }
+    body{
+        .recipe-container{
+            width: 100%;
+            margin: 0;
+            border-radius: 0;
+            padding-top: 195px;
+            .recipe-image{
+                width: 100%;
+                // background-color: blue;
+                position: absolute;
+                top: 0;
+                left: 0;
+                border-radius: 0;
+            }
+        }
+        .attribution{
+            display: none;
+        }
+    }
+}
